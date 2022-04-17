@@ -1,1 +1,0 @@
-7 курс: ASP.NET MVC Core
