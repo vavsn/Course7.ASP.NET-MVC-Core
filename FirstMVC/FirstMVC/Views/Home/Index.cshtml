@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Рабочее расписание";
+}
+@model IEnumerable<FirstMVC.Models.OfficeDayInfoModel>
+
+<h1>Наш офис работает по следующему графику</h1>
+
+<table class="table">
+    <thead>
+        <tr style="background-color:lightgray; color:black;" align="center">
+            <td>День недели</td>
+            <td>Рабочее время</td>
+            <td>Обеденный перерыв</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            if (!@d.WeekEnd) 
+            {
+                <tr align="center" class="text-dark">
+                    <td>@d.DayOfTheWeek</td>
+                    <td>с @d.TimeBeginWork.ToString(@"hh\:mm") до @d.TimeEndWork.ToString(@"hh\:mm")</td>
+                    <td>с @d.TimeBeginLunch.ToString(@"hh\:mm") до @d.TimeEndLunch.ToString(@"hh\:mm")</td>
+                </tr>
+            }
+            else
+            {
+                <tr align="center" class="text-danger">
+                    <td>@d.DayOfTheWeek</td>
+                    <td colspan="2">ВЫХОДНОЙ</td>
+                </tr>
+                
+            }
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@*            <th>@d.TimeBeginWork.ToString("hh:mm")</th>
+            <th>@d.TimeEndWork.ToString("hh:mm")</th>
+            <th>@d.TimeBeginLunch.ToString("hh:mm")</th>
+            <th>@d.TimeEndLunch.ToString("hh:mm")</th>
+            <th>@d.DayOfTheWeek</th>
+*@
