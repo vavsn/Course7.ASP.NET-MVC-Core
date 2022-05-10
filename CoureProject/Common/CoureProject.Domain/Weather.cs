@@ -1,15 +1,18 @@
-﻿namespace CoureProject.Domain;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CoureProject.Domain;
 
 public class Weather
 {
-	public string id { get; set; }
+	[Key]
+	public long id { get; set; }
 	public string weather_state_name { get; set; }
 
 	public string weather_state_abbr { get; set; }
 	public string wind_direction_compass { get; set; }
 
-	public DateTime crt {get; set; }
-	public DateOnly applicable_date { get; set; }
+	public DateTime create {get; set; }
+	public DateTime applicable_date { get; set; }
 	public float min_temp { get; set; }
 
 	public float max_temp { get; set; }

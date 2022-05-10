@@ -23,7 +23,7 @@ services.AddTransient<DbInitializer>();
 
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-services.AddEndpointsApiExplorer();
+IServiceCollection serviceCollection = services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
 var app = builder.Build();

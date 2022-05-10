@@ -3,6 +3,7 @@ using System;
 using CoureProject.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,64 +11,34 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoureProject.DAL.SQLiteServer.Migrations
 {
     [DbContext(typeof(CoureProjectDB))]
-    partial class CoureProjectDBModelSnapshot : ModelSnapshot
+    [Migration("20220510132613_20221005_UpdateDB")]
+    partial class _20221005_UpdateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
 
-            modelBuilder.Entity("CoureProject.Domain.Consolidated_Weather", b =>
+            modelBuilder.Entity("CoureProject.Domain.City", b =>
                 {
-                    b.Property<int>("woeid")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("latt_long")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("location_type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("parentwoeid")
+                    b.Property<int>("WeatherID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("sun_rise")
-                        .HasColumnType("TEXT");
+                    b.HasKey("Id");
 
-                    b.Property<DateTime>("sun_set")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("time")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("timezone")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("timezone_name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("title")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("woeid");
-
-                    b.HasIndex("parentwoeid");
-
-                    b.ToTable("Consolidated_Weathers");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("CoureProject.Domain.Parent", b =>
                 {
-                    b.Property<int>("woeid")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("latt_long")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -80,19 +51,14 @@ namespace CoureProject.DAL.SQLiteServer.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("woeid");
+                    b.Property<int>("woeid")
+                        .HasColumnType("INTEGER");
 
-                    b.ToTable("Parent");
+                    b.ToTable("Parents");
                 });
 
             modelBuilder.Entity("CoureProject.Domain.Source", b =>
                 {
-                    b.Property<string>("title")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("Consolidated_Weatherwoeid")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("crawl_rate")
                         .HasColumnType("INTEGER");
 
@@ -100,24 +66,21 @@ namespace CoureProject.DAL.SQLiteServer.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("url")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("title");
-
-                    b.HasIndex("Consolidated_Weatherwoeid");
-
-                    b.ToTable("Source");
+                    b.ToTable("Sources");
                 });
 
             modelBuilder.Entity("CoureProject.Domain.Weather", b =>
                 {
                     b.Property<long>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("Consolidated_Weatherwoeid")
                         .HasColumnType("INTEGER");
 
                     b.Property<float>("air_pressure")
@@ -167,41 +130,7 @@ namespace CoureProject.DAL.SQLiteServer.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Consolidated_Weatherwoeid");
-
-                    b.ToTable("Weather");
-                });
-
-            modelBuilder.Entity("CoureProject.Domain.Consolidated_Weather", b =>
-                {
-                    b.HasOne("CoureProject.Domain.Parent", "parent")
-                        .WithMany()
-                        .HasForeignKey("parentwoeid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("parent");
-                });
-
-            modelBuilder.Entity("CoureProject.Domain.Source", b =>
-                {
-                    b.HasOne("CoureProject.Domain.Consolidated_Weather", null)
-                        .WithMany("sources")
-                        .HasForeignKey("Consolidated_Weatherwoeid");
-                });
-
-            modelBuilder.Entity("CoureProject.Domain.Weather", b =>
-                {
-                    b.HasOne("CoureProject.Domain.Consolidated_Weather", null)
-                        .WithMany("consolidated_weather")
-                        .HasForeignKey("Consolidated_Weatherwoeid");
-                });
-
-            modelBuilder.Entity("CoureProject.Domain.Consolidated_Weather", b =>
-                {
-                    b.Navigation("consolidated_weather");
-
-                    b.Navigation("sources");
+                    b.ToTable("Weathers");
                 });
 #pragma warning restore 612, 618
         }

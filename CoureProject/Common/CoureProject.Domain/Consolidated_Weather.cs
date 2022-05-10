@@ -2,7 +2,7 @@
 
 public class Consolidated_Weather
 {
-	public List<Weather> weathers { get; set; }
+	public List<Weather> consolidated_weather { get; set; }
 	public DateTime	time { get; set; }
 
 	public DateTime sun_rise { get; set; }
