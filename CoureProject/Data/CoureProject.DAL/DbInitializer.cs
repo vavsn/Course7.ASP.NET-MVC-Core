@@ -41,23 +41,23 @@ public class DbInitializer
 
         _logger.LogInformation("БД создана");
 
-        await AddData(cancel);
+        if (!await _db.Consolidated_Weathers.AnyAsync(cancel).ConfigureAwait(false))
+        {
+            await AddData(cancel);
+        }
     }
 
     private async Task AddData(CancellationToken cancel = default)
     {
-        if(!await _db.Consolidated_Weathers.AnyAsync(cancel).ConfigureAwait(false))
-        {
-            string jsonUrl = $"https://www.metaweather.com/api/location/2122265/";
+        string jsonUrl = $"https://www.metaweather.com/api/location/2122265/";
 
-            var webClient = new WebClient();
+        var webClient = new WebClient();
 
-            string jsonUrl1 = webClient.DownloadString(jsonUrl);
+        string jsonUrl1 = webClient.DownloadString(jsonUrl);
 
-            Consolidated_Weather weatherData = JsonSerializer.Deserialize<Consolidated_Weather>(jsonUrl1);
+        Consolidated_Weather weatherData = JsonSerializer.Deserialize<Consolidated_Weather>(jsonUrl1);
 
-            await _db.Consolidated_Weathers.AddRangeAsync(weatherData, cancel);
-            await _db.SaveChangesAsync(cancel);
-        }
+        await _db.Consolidated_Weathers.AddRangeAsync(weatherData);
+        await _db.SaveChangesAsync(cancel);
     }
 }
