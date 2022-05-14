@@ -1,5 +1,7 @@
 using CoureProject.DAL;
 using CoureProject.DAL.Context;
+using CoureProject.DAL.Repositories;
+using CoureProject.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,6 +20,7 @@ switch (connection_type)
 
 
 services.AddTransient<DbInitializer>();
+services.AddScoped(typeof(IRepository<>), typeof(EntityRepository<>));
 
 // Add services to the container.
 
