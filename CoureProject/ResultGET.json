@@ -1,0 +1,165 @@
+{
+	"consolidated_weather": [
+		{
+			"id": 5154488944951296,
+			"weather_state_name": "Light Rain",
+			"weather_state_abbr": "lr",
+			"wind_direction_compass": "NW",
+			"created": "2022-05-04T13:10:32.063531Z",
+			"applicable_date": "2022-05-04",
+			"min_temp": 3.535,
+			"max_temp": 9.38,
+			"the_temp": 8.2,
+			"wind_speed": 6.860322984967788,
+			"wind_direction": 309.55991141870467,
+			"air_pressure": 1012.5,
+			"humidity": 63,
+			"visibility": 13.174933389008192,
+			"predictability": 75
+		},
+		{
+			"id": 5402658329329664,
+			"weather_state_name": "Light Cloud",
+			"weather_state_abbr": "lc",
+			"wind_direction_compass": "NW",
+			"created": "2022-05-04T13:10:35.009157Z",
+			"applicable_date": "2022-05-05",
+			"min_temp": 0.835,
+			"max_temp": 10.89,
+			"the_temp": 9.23,
+			"wind_speed": 4.754586491036348,
+			"wind_direction": 317.65819797960025,
+			"air_pressure": 1025.5,
+			"humidity": 34,
+			"visibility": 13.645932752724092,
+			"predictability": 70
+		},
+		{
+			"id": 6695800705908736,
+			"weather_state_name": "Heavy Cloud",
+			"weather_state_abbr": "hc",
+			"wind_direction_compass": "SW",
+			"created": "2022-05-04T13:10:37.978573Z",
+			"applicable_date": "2022-05-06",
+			"min_temp": 4.45,
+			"max_temp": 14.545,
+			"the_temp": 13.425,
+			"wind_speed": 4.442437923876561,
+			"wind_direction": 228.3295630553023,
+			"air_pressure": 1029.0,
+			"humidity": 39,
+			"visibility": 14.500939513242664,
+			"predictability": 71
+		},
+		{
+			"id": 4645021300031488,
+			"weather_state_name": "Heavy Cloud",
+			"weather_state_abbr": "hc",
+			"wind_direction_compass": "SSW",
+			"created": "2022-05-04T13:10:41.065487Z",
+			"applicable_date": "2022-05-07",
+			"min_temp": 6.555,
+			"max_temp": 15.845,
+			"the_temp": 14.995000000000001,
+			"wind_speed": 5.464191765004375,
+			"wind_direction": 206.83238443691668,
+			"air_pressure": 1027.5,
+			"humidity": 40,
+			"visibility": 14.582649825021872,
+			"predictability": 71
+		},
+		{
+			"id": 6528558236172288,
+			"weather_state_name": "Showers",
+			"weather_state_abbr": "s",
+			"wind_direction_compass": "SSW",
+			"created": "2022-05-04T13:10:43.795613Z",
+			"applicable_date": "2022-05-08",
+			"min_temp": 9.275,
+			"max_temp": 16.509999999999999,
+			"the_temp": 15.885,
+			"wind_speed": 5.837106824616241,
+			"wind_direction": 207.16076870064928,
+			"air_pressure": 1019.0,
+			"humidity": 52,
+			"visibility": 12.70424471088841,
+			"predictability": 73
+		},
+		{
+			"id": 5770921206874112,
+			"weather_state_name": "Heavy Rain",
+			"weather_state_abbr": "hr",
+			"wind_direction_compass": "NNW",
+			"created": "2022-05-04T13:10:46.977273Z",
+			"applicable_date": "2022-05-09",
+			"min_temp": 4.645,
+			"max_temp": 11.219999999999999,
+			"the_temp": 8.68,
+			"wind_speed": 7.240768909568122,
+			"wind_direction": 345.5,
+			"air_pressure": 1014.0,
+			"humidity": 55,
+			"visibility": 8.596670444603515,
+			"predictability": 77
+		}
+	],
+	"time": "2022-05-04T18:49:36.500284+03:00",
+	"sun_rise": "2022-05-04T04:40:27.197598+03:00",
+	"sun_set": "2022-05-04T20:13:33.417761+03:00",
+	"timezone_name": "LMT",
+	"parent": {
+		"title": "Russia",
+		"location_type": "Country",
+		"woeid": 23424936,
+		"latt_long": "59.453751,108.830719"
+	},
+	"sources": [
+		{
+			"title": "BBC",
+			"slug": "bbc",
+			"url": "http://www.bbc.co.uk/weather/",
+			"crawl_rate": 360
+		},
+		{
+			"title": "Forecast.io",
+			"slug": "forecast-io",
+			"url": "http://forecast.io/",
+			"crawl_rate": 480
+		},
+		{
+			"title": "HAMweather",
+			"slug": "hamweather",
+			"url": "http://www.hamweather.com/",
+			"crawl_rate": 360
+		},
+		{
+			"title": "Met Office",
+			"slug": "met-office",
+			"url": "http://www.metoffice.gov.uk/",
+			"crawl_rate": 180
+		},
+		{
+			"title": "OpenWeatherMap",
+			"slug": "openweathermap",
+			"url": "http://openweathermap.org/",
+			"crawl_rate": 360
+		},
+		{
+			"title": "Weather Underground",
+			"slug": "wunderground",
+			"url": "https://www.wunderground.com/?apiref=fc30dc3cd224e19b",
+			"crawl_rate": 720
+		},
+		{
+			"title": "World Weather Online",
+			"slug": "world-weather-online",
+			"url": "http://www.worldweatheronline.com/",
+			"crawl_rate": 360
+		}
+	],
+	"title": "Moscow",
+	"location_type": "City",
+	"woeid": 2122265,
+	"latt_long": "55.756950,37.614971",
+	"timezone": "Europe/Moscow"
+}
