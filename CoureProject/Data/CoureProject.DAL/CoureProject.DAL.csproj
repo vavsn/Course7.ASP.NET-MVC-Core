@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\CoureProject.Domain\CoureProject.Domain.csproj" />
+    <ProjectReference Include="..\..\Services\CoureProject.Interfaces\CoureProject.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
