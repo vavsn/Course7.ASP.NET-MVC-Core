@@ -6,7 +6,7 @@ public interface IRepository<T> where T : class, IEntity
 {
     IEnumerable<T> GetAll();
     
-    T? GetByID(int id);
+    T? GetById(int id);
 
     int Count();
 

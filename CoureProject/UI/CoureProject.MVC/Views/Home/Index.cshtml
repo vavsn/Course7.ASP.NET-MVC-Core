@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<CoureProject.Domain.Consolidated_Weather>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +7,29 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<table class="table">
+    <thread>
+        <tr>
+            <th>ID</th>
+            <th>woeid</th>
+            <th>Город</th>
+            <th>Временная зона</th>
+            <th>Восход солнца</th>
+            <th>Заход солнца</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach(var weather in Model)
+        {
+            <tr>
+                <td>@weather.id</td>
+                <td>@weather.woeid</td>
+                <td>@weather.title</td>
+                <td>@weather.timezone</td>
+                <td>@weather.sun_rise</td>
+                <td>@weather.sun_set</td>
+            </tr>
+        }
+    </tbody>
+</table>

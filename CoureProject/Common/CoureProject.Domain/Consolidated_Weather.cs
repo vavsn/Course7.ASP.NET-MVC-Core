@@ -1,6 +1,8 @@
-﻿namespace CoureProject.Domain;
+﻿using CoureProject.Domain.Base.Entities;
 
-public class Consolidated_Weather
+namespace CoureProject.Domain;
+
+public class Consolidated_Weather: Entity
 {
 	public List<Weather> consolidated_weather { get; set; }
 	public DateTime	time { get; set; }

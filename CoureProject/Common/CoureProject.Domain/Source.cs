@@ -3,7 +3,7 @@
 namespace CoureProject.Domain;
 
 public class Source
-{
+{ 
     [Key]
     public string title { get; set; }
  	public string slug { get; set; }

@@ -4,13 +4,13 @@ namespace CoureProject.Domain.Base.Entities;
 
 public abstract class Entity: IEntity, IEquatable<Entity>
 {
-    public int Id { get; set; }
+    public int id { get; set; }
 
     public bool Equals(Entity? other)
     {
         if (other is null) return false;
         if (ReferenceEquals(this, other)) return true;
-        return Id == other.Id;
+        return id == other.id;
     }
 
     public override bool Equals(object? obj)
@@ -22,7 +22,7 @@ public abstract class Entity: IEntity, IEquatable<Entity>
     }
     public override int GetHashCode()
     {
-        return Id;
+        return id;
     }
 
     public static bool operator == (Entity? left, Entity? right) { return Equals(left, right); }

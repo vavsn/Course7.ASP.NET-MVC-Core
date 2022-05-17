@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  coureproject.mvc:
+    image: ${DOCKER_REGISTRY-}coureprojectmvc
+    build:
+      context: .
+      dockerfile: UI/CoureProject.MVC/Dockerfile

@@ -1,5 +1,7 @@
 using CoureProject.DAL;
 using CoureProject.DAL.Context;
+using CoureProject.DAL.Repositories;
+using CoureProject.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,6 +20,7 @@ switch (connection_type)
 
 
 services.AddTransient<DbInitializer>();
+services.AddScoped(typeof(IRepositoryAsync<>), typeof(EntityRepository<>));
 
 // Add services to the container.
 
@@ -31,7 +34,7 @@ var app = builder.Build();
 using(var scope = app.Services.CreateScope())
 {
     var initializer = scope.ServiceProvider.GetRequiredService<DbInitializer>();
-    await initializer.InitializeDBAsync(RemoveBefore: true);
+    await initializer.InitializeDBAsync(RemoveBefore: false);
 }
 
 // Configure the HTTP request pipeline.
